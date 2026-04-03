@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallon to Liter Converter — Free App & Online Tool | instacalc.in</title>
+<meta name="description" content="Convert gallons to liters instantly — free online tool & Android app. Supports US gallon, Imperial gallon, water tank, petrol, and more. 1 US gallon = 3.785 liters.">
+<meta name="keywords" content="gallon to liter, gallons to liters, gallon to litre, 1 gallon to liter, how many liters in a gallon, gallon to liter converter, gallon to liter India, 1 gallon kitne liter">
+<meta property="og:title" content="Gallon to Liter Converter — Free App & Online Tool">
+<meta property="og:description" content="Instant gallon to liter conversion for water tanks, petrol, cooking and more. Free Android app by Life Hack Developer.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a4f6e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How many liters in 1 gallon?","acceptedAnswer":{"@type":"Answer","text":"1 US gallon = 3.785 liters. 1 Imperial (UK) gallon = 4.546 liters."}},
+    {"@type":"Question","name":"How to convert gallon to liter?","acceptedAnswer":{"@type":"Answer","text":"Multiply gallons by 3.785411784 for US gallons or by 4.54609 for Imperial gallons. Example: 5 US gallons = 5 × 3.785 = 18.927 liters."}},
+    {"@type":"Question","name":"Is a gallon bigger than a liter?","acceptedAnswer":{"@type":"Answer","text":"Yes. 1 US gallon equals about 3.785 liters, and 1 Imperial gallon equals 4.546 liters. So a gallon is always bigger than a liter."}},
+    {"@type":"Question","name":"What is 1 gallon in liters in India?","acceptedAnswer":{"@type":"Answer","text":"In India, the US gallon is most commonly referenced: 1 gallon = 3.785 liters. For water tanks, 1000-liter tanks equal about 264 US gallons."}},
+    {"@type":"Question","name":"1 gallon kitne liter hota hai?","acceptedAnswer":{"@type":"Answer","text":"1 US gallon mein 3.785 litre hote hain. 1 Imperial gallon mein 4.546 litre hote hain."}},
+    {"@type":"Question","name":"How many gallons is 20 liters?","acceptedAnswer":{"@type":"Answer","text":"20 liters = 5.28 US gallons or 4.40 Imperial gallons."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Gallon To Liter Converter",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"18"},
+  "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "url": "https://play.google.com/store/apps/details?id=com.water.unitconverter_9948",
+  "author": {"@type":"Organization","name":"Life Hack Developer"}
+}
+</script>
+
+<style>
+:root {
+  --ocean: #06364f;
+  --deep: #0a1628;
+  --mid: #0d5f88;
+  --bright: #00b4d8;
+  --aqua: #48cae4;
+  --foam: #caf0f8;
+  --light: #e9f8fc;
+  --white: #ffffff;
+  --text: #1a2e3b;
+  --muted: #4a6a7a;
+  --border: rgba(0,180,216,0.18);
+  --r: 14px;
+  --rs: 8px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#f5fbfd;
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:64px;
+  background:rgba(10,22,40,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,180,216,0.15);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:18px;
+  color:var(--white);letter-spacing:-0.3px;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo span{color:var(--bright)}
+.nav-logo .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--bright);
+  display:inline-block;
+  animation:pulse 2s infinite;
+}
+.nav-cta{
+  background:var(--bright);color:var(--deep);
+  font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;
+  padding:8px 20px;border-radius:50px;border:none;cursor:pointer;
+  text-decoration:none;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--aqua);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(160deg,var(--deep) 0%,var(--ocean) 50%,#0a3d55 100%);
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  padding:100px 5% 60px;gap:48px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300b4d8' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-waves{
+  position:absolute;bottom:0;left:0;right:0;
+  height:120px;overflow:hidden;
+}
+.hero-waves svg{width:100%;height:100%}
+
+.hero-left{position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,180,216,0.12);border:1px solid rgba(0,180,216,0.3);
+  padding:6px 14px;border-radius:50px;margin-bottom:24px;
+  font-size:13px;color:var(--aqua);font-weight:500;
+}
+.hero-badge svg{width:14px;height:14px}
+
+h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;
+  color:var(--white);letter-spacing:-1px;margin-bottom:20px;
+}
+h1 em{color:var(--bright);font-style:normal}
+
+.hero-desc{
+  font-size:clamp(15px,2vw,17px);color:rgba(255,255,255,0.7);
+  line-height:1.7;margin-bottom:32px;font-weight:300;max-width:480px;
+}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bright);color:var(--deep);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:15px;
+  padding:14px 28px;border-radius:50px;text-decoration:none;
+  transition:all .25s;border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--aqua);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,180,216,0.35)}
+.btn-primary svg{width:20px;height:20px}
+.btn-secondary{
+  display:flex;align-items:center;gap:8px;
+  background:transparent;color:var(--white);
+  font-size:15px;padding:14px 24px;border-radius:50px;
+  border:1px solid rgba(255,255,255,0.25);text-decoration:none;
+  transition:all .25s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+.hero-stats{
+  display:flex;gap:32px;margin-top:36px;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);
+}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-num{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;color:var(--white)}
+.stat-lbl{font-size:12px;color:rgba(255,255,255,0.45);font-weight:400}
+
+/* ─── CONVERTER CARD ─── */
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px}
+
+.converter-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(0,180,216,0.25);
+  border-radius:20px;
+  padding:28px;
+  backdrop-filter:blur(20px);
+}
+.conv-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:22px;
+}
+.conv-title{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:15px;
+  color:var(--white);
+}
+.conv-type-toggle{
+  display:flex;background:rgba(0,0,0,0.3);border-radius:50px;
+  overflow:hidden;gap:2px;padding:3px;
+}
+.toggle-btn{
+  padding:5px 14px;border-radius:50px;font-size:12px;font-weight:500;
+  border:none;cursor:pointer;transition:all .2s;
+  background:transparent;color:rgba(255,255,255,0.5);
+}
+.toggle-btn.active{background:var(--bright);color:var(--deep)}
+
+.conv-fields{display:flex;flex-direction:column;gap:10px;position:relative}
+.conv-field{
+  background:rgba(0,0,0,0.25);border:1px solid rgba(0,180,216,0.2);
+  border-radius:var(--r);padding:16px 18px;
+}
+.field-label{font-size:11px;color:rgba(255,255,255,0.4);font-weight:500;margin-bottom:6px;letter-spacing:.06em}
+.field-row{display:flex;align-items:center;justify-content:space-between}
+.field-input{
+  background:transparent;border:none;outline:none;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:28px;
+  color:var(--white);width:70%;
+}
+.field-input::placeholder{color:rgba(255,255,255,0.2)}
+.field-unit{
+  font-family:'Syne',sans-serif;font-weight:600;font-size:14px;
+  color:var(--bright);background:rgba(0,180,216,0.12);
+  padding:5px 12px;border-radius:50px;border:1px solid rgba(0,180,216,0.2);
+}
+
+.swap-btn{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:var(--bright);border:3px solid #0d5f88;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .3s;z-index:10;
+}
+.swap-btn:hover{background:var(--aqua);transform:translate(-50%,-50%) rotate(180deg)}
+.swap-btn svg{width:16px;height:16px;fill:var(--deep)}
+
+.result-field{background:rgba(0,180,216,0.08);border-color:rgba(0,180,216,0.35)}
+.result-value{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:32px;
+  color:var(--bright);min-height:40px;
+}
+
+.conv-formula{
+  margin-top:16px;padding:12px 14px;
+  background:rgba(0,0,0,0.2);border-radius:10px;
+  font-size:12px;color:rgba(255,255,255,0.45);
+  display:flex;align-items:center;gap:8px;
+}
+.formula-val{color:var(--aqua);font-weight:500;font-family:'DM Sans',sans-serif}
+
+.quick-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.quick-pill{
+  background:rgba(0,0,0,0.25);border:1px solid rgba(0,180,216,0.2);
+  padding:6px 12px;border-radius:50px;font-size:12px;
+  color:rgba(255,255,255,0.6);cursor:pointer;transition:all .2s;
+}
+.quick-pill:hover{background:rgba(0,180,216,0.15);color:var(--white);border-color:rgba(0,180,216,0.5)}
+
+/* ─── SECTIONS ─── */
+section{padding:80px 5%}
+
+.section-badge{
+  display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;
+  color:var(--mid);background:rgba(13,95,136,0.1);
+  padding:4px 12px;border-radius:50px;margin-bottom:12px;text-transform:uppercase;
+}
+h2{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;
+  color:var(--ocean);letter-spacing:-0.5px;margin-bottom:14px;
+}
+.section-sub{
+  font-size:clamp(15px,1.8vw,17px);color:var(--muted);
+  max-width:560px;margin-bottom:48px;line-height:1.7;font-weight:300;
+}
+
+/* USE CASES */
+.usecases{background:#f0fafd}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case-card{
+  background:var(--white);border-radius:var(--r);padding:24px;
+  border:1px solid rgba(13,95,136,0.1);
+  transition:all .25s;position:relative;overflow:hidden;
+}
+.case-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--bright),var(--aqua));
+  transform:scaleX(0);transform-origin:left;transition:.3s;
+}
+.case-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(13,95,136,0.12)}
+.case-card:hover::before{transform:scaleX(1)}
+.case-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(0,180,216,0.08);display:flex;align-items:center;
+  justify-content:center;margin-bottom:14px;font-size:22px;
+}
+.case-title{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:16px;
+  color:var(--ocean);margin-bottom:8px;
+}
+.case-desc{font-size:14px;color:var(--muted);line-height:1.6}
+.case-kw{
+  display:inline-block;font-size:11px;color:var(--mid);
+  background:rgba(13,95,136,0.07);padding:3px 8px;
+  border-radius:4px;margin-top:10px;font-weight:500;
+}
+
+/* CONVERTER TABLE */
+.conv-table-section{background:var(--white)}
+.tables-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.tbl-card{
+  border:1px solid rgba(13,95,136,0.12);border-radius:var(--r);overflow:hidden;
+}
+.tbl-head{
+  background:var(--ocean);padding:14px 20px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--white);
+}
+.conv-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.conv-tbl th{
+  background:rgba(13,95,136,0.06);padding:10px 20px;
+  text-align:left;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em;
+  border-bottom:1px solid rgba(13,95,136,0.1);
+}
+.conv-tbl td{
+  padding:10px 20px;border-bottom:1px solid rgba(13,95,136,0.07);
+  color:var(--text);
+}
+.conv-tbl tr:last-child td{border-bottom:none}
+.conv-tbl tr:hover td{background:rgba(0,180,216,0.04)}
+.tbl-val{font-family:'DM Sans',sans-serif;font-weight:500;color:var(--mid)}
+.tbl-highlight{font-weight:600;color:var(--ocean)}
+
+/* FEATURES */
+.features{background:#f5fbfd}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.feat-item{
+  display:flex;gap:16px;padding:22px;
+  background:var(--white);border-radius:var(--r);
+  border:1px solid rgba(13,95,136,0.1);transition:all .2s;
+}
+.feat-item:hover{border-color:rgba(0,180,216,0.35);transform:translateX(4px)}
+.feat-icon{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--ocean),var(--mid));
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.feat-txt h3{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:15px;
+  color:var(--ocean);margin-bottom:5px;
+}
+.feat-txt p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* FAQ */
+.faq-section{background:var(--white)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px}
+.faq-item{
+  border:1px solid rgba(13,95,136,0.12);border-radius:var(--r);
+  overflow:hidden;
+}
+.faq-q{
+  padding:18px 20px;display:flex;align-items:flex-start;justify-content:space-between;
+  gap:12px;cursor:pointer;
+  font-family:'Syne',sans-serif;font-weight:600;font-size:15px;color:var(--ocean);
+  background:var(--white);border:none;width:100%;text-align:left;
+}
+.faq-q:hover{background:rgba(0,180,216,0.03)}
+.faq-chevron{
+  width:20px;height:20px;flex-shrink:0;transition:transform .25s;
+  color:var(--bright);margin-top:2px;
+}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+  font-size:14px;color:var(--muted);line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 20px 18px}
+
+/* HINDI SECTION */
+.hindi-section{
+  background:linear-gradient(135deg,var(--deep),var(--ocean));
+  color:var(--white);
+}
+.hindi-section h2{color:var(--white)}
+.hindi-section .section-sub{color:rgba(255,255,255,0.6)}
+.hindi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.hindi-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--r);padding:20px;
+}
+.hindi-q{font-size:15px;font-weight:500;color:var(--aqua);margin-bottom:8px}
+.hindi-a{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6}
+
+/* CTA */
+.cta-section{
+  background:linear-gradient(135deg,var(--deep) 0%,var(--ocean) 100%);
+  text-align:center;padding:100px 5%;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(0,180,216,0.18),transparent 70%);
+}
+.cta-section h2{color:var(--white);position:relative;z-index:1}
+.cta-section .section-sub{
+  color:rgba(255,255,255,0.65);margin:0 auto 40px;position:relative;z-index:1;
+}
+.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+.playstore-btn{
+  display:flex;align-items:center;gap:12px;
+  background:var(--white);color:var(--ocean);
+  padding:14px 28px;border-radius:50px;text-decoration:none;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:15px;
+  transition:all .25s;
+}
+.playstore-btn:hover{background:var(--foam);transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.playstore-btn svg{width:22px;height:22px}
+
+/* FOOTER */
+footer{
+  background:var(--deep);padding:40px 5%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:18px;
+  color:var(--white);
+}
+.footer-logo span{color:var(--bright)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--bright)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* ANIMATIONS */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(0.85)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ripple{
+  0%{transform:translate(-50%,-50%) scale(0);opacity:.5}
+  100%{transform:translate(-50%,-50%) scale(4);opacity:0}
+}
+
+.anim{opacity:0;animation:fadeUp .6s ease forwards}
+.anim-d1{animation-delay:.1s}
+.anim-d2{animation-delay:.2s}
+.anim-d3{animation-delay:.3s}
+.anim-d4{animation-delay:.4s}
+.anim-d5{animation-delay:.5s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:90px 5% 60px}
+  .cases-grid{grid-template-columns:1fr 1fr}
+  .tables-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .hindi-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .cases-grid{grid-template-columns:1fr}
+  nav{padding:0 4%}
+  .hero-stats{gap:20px}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="dot"></span>
+    insta<span>calc</span>.in
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.water.unitconverter_9948" class="nav-cta" target="_blank" rel="noopener">
+    Free Download
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge anim anim-d1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a8 8 0 0 0-3 15.5"/><path d="M12 2v4m0 16v-4"/></svg>
+      Free Android App &amp; Online Tool
+    </div>
+
+    <h1 class="anim anim-d2">
+      Gallon to <em>Liter</em><br>Converter
+    </h1>
+
+    <p class="hero-desc anim anim-d3">
+      Instantly convert US gallons, Imperial gallons to liters and back. Perfect for water tanks, petrol, cooking, NEET chemistry and more. 1 US gallon = 3.785 liters.
+    </p>
+
+    <div class="hero-btns anim anim-d4">
+      <a href="https://play.google.com/store/apps/details?id=com.water.unitconverter_9948" class="btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18.5v-13c0-.83.99-1.27 1.6-.67l11 6.5c.53.31.53 1.03 0 1.34l-11 6.5C3.99 19.77 3 19.33 3 18.5z"/></svg>
+        Download on Google Play
+      </a>
+      <a href="#converter" class="btn-secondary">
+        Try Online Tool ↓
+      </a>
+    </div>
+
+    <div class="hero-stats anim anim-d5">
+      <div class="stat"><span class="stat-num">5K+</span><span class="stat-lbl">Downloads</span></div>
+      <div class="stat"><span class="stat-num">4.3★</span><span class="stat-lbl">Play Store</span></div>
+      <div class="stat"><span class="stat-num">Free</span><span class="stat-lbl">No ads · No cost</span></div>
+      <div class="stat"><span class="stat-num">6+</span><span class="stat-lbl">Unit types</span></div>
+    </div>
+  </div>
+
+  <!-- LIVE CONVERTER -->
+  <div class="hero-right" id="converter">
+    <div class="converter-card anim anim-d3">
+      <div class="conv-header">
+        <span class="conv-title">Gallon ⇌ Liter Converter</span>
+        <div class="conv-type-toggle">
+          <button class="toggle-btn active" onclick="setType('us')">US Gallon</button>
+          <button class="toggle-btn" onclick="setType('uk')">Imperial</button>
+        </div>
+      </div>
+
+      <div class="conv-fields">
+        <!-- FROM FIELD -->
+        <div class="conv-field" id="from-field">
+          <div class="field-label" id="from-label">GALLON</div>
+          <div class="field-row">
+            <input class="field-input" type="number" id="input-val" placeholder="0" oninput="convert()" min="0">
+            <span class="field-unit" id="from-unit">gal</span>
+          </div>
+        </div>
+
+        <!-- SWAP BTN -->
+        <button class="swap-btn" id="swapBtn" onclick="swapUnits()" title="Swap units" aria-label="Swap conversion direction">
+          <svg viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+        </button>
+
+        <!-- TO FIELD (result) -->
+        <div class="conv-field result-field" id="to-field">
+          <div class="field-label" id="to-label">LITER</div>
+          <div class="field-row">
+            <span class="result-value" id="result-val">—</span>
+            <span class="field-unit" id="to-unit">L</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="conv-formula">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+        Formula: <span class="formula-val" id="formula-text">1 US gallon × 3.78541 = 3.78541 L</span>
+      </div>
+
+      <div class="quick-pills">
+        <span style="font-size:11px;color:rgba(255,255,255,0.3);align-self:center">Quick:</span>
+        <span class="quick-pill" onclick="setVal(1)">1</span>
+        <span class="quick-pill" onclick="setVal(5)">5</span>
+        <span class="quick-pill" onclick="setVal(10)">10</span>
+        <span class="quick-pill" onclick="setVal(20)">20</span>
+        <span class="quick-pill" onclick="setVal(50)">50</span>
+        <span class="quick-pill" onclick="setVal(100)">100</span>
+        <span class="quick-pill" onclick="setVal(0.5)">½</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave -->
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#f0fafd"/>
+    </svg>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases">
+  <div class="section-badge">Use Cases</div>
+  <h2>Where you need gallon to liter conversion</h2>
+  <p class="section-sub">From water tanks to petrol pumps — here's when this converter saves your day</p>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-icon">🚰</div>
+      <div class="case-title">Water Tank Sizing</div>
+      <p class="case-desc">Water tanks in India are often rated in liters, but some products list capacity in gallons. Convert to find the right tank for your home — typically 1,000–2,000 liters (264–528 gallons).</p>
+      <span class="case-kw">gallon to liter water tank</span>
+    </div>
+    <div class="case-card">
+      <div class="case-icon">⛽</div>
+      <div class="case-title">Petrol &amp; Diesel</div>
+      <p class="case-desc">Fuel efficiency ratings in imported vehicles use miles per gallon (mpg). Convert to liters per 100km or compare petrol prices across US and India with ease.</p>
+      <span class="case-kw">gallon to litre petrol India</span>
+    </div>
+    <div class="case-card">
+      <div class="case-icon">🧪</div>
+      <div class="case-title">NEET / JEE Chemistry</div>
+      <p class="case-desc">Unit conversion is a core skill tested in NEET and board exams. Quick gallon-liter conversion helps solve concentration, volume, and solution problems accurately.</p>
+      <span class="case-kw">gallon to liter NEET chemistry</span>
+    </div>
+    <div class="case-card">
+      <div class="case-icon">🍳</div>
+      <div class="case-title">Cooking &amp; Recipes</div>
+      <p class="case-desc">American recipes often use gallons, quarts, or pints. Our converter handles all of these — convert instantly so your dish turns out perfect every time.</p>
+      <span class="case-kw">us gallon to liter cooking</span>
+    </div>
+    <div class="case-card">
+      <div class="case-icon">🏊</div>
+      <div class="case-title">Swimming Pool &amp; Aquarium</div>
+      <p class="case-desc">Pool chemical dosages and aquarium guides often list volumes in gallons. Convert to liters to buy the right amount of chlorine or water conditioner.</p>
+      <span class="case-kw">gallon to liter swimming pool</span>
+    </div>
+    <div class="case-card">
+      <div class="case-icon">🎨</div>
+      <div class="case-title">Paint &amp; Industrial</div>
+      <p class="case-desc">Paint cans, chemical containers, and industrial supplies from the US are often measured in gallons. Convert to liters for accurate purchasing and coverage calculations.</p>
+      <span class="case-kw">gallon to liter paint</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSION TABLE -->
+<section class="conv-table-section">
+  <div class="section-badge">Reference Table</div>
+  <h2>Gallon to liter conversion table</h2>
+  <p class="section-sub">Quick reference — US gallon and Imperial (UK) gallon to liters. Bookmark this page for instant answers.</p>
+  <div class="tables-grid">
+    <div class="tbl-card">
+      <div class="tbl-head">US Gallon → Liters (1 gal = 3.785 L)</div>
+      <table class="conv-tbl">
+        <thead><tr><th>US Gallon (gal)</th><th>Liters (L)</th></tr></thead>
+        <tbody>
+          <tr><td class="tbl-highlight">1 gallon</td><td class="tbl-val">3.785 L</td></tr>
+          <tr><td>2 gallons</td><td class="tbl-val">7.571 L</td></tr>
+          <tr><td>3 gallons</td><td class="tbl-val">11.356 L</td></tr>
+          <tr><td>4 gallons</td><td class="tbl-val">15.141 L</td></tr>
+          <tr><td class="tbl-highlight">5 gallons</td><td class="tbl-val">18.927 L</td></tr>
+          <tr><td>10 gallons</td><td class="tbl-val">37.854 L</td></tr>
+          <tr><td>20 gallons</td><td class="tbl-val">75.708 L</td></tr>
+          <tr><td>50 gallons</td><td class="tbl-val">189.271 L</td></tr>
+          <tr><td class="tbl-highlight">100 gallons</td><td class="tbl-val">378.541 L</td></tr>
+          <tr><td>500 gallons</td><td class="tbl-val">1,892.7 L</td></tr>
+          <tr><td class="tbl-highlight">1000 gallons</td><td class="tbl-val">3,785.4 L</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-card">
+      <div class="tbl-head">Imperial (UK) Gallon → Liters (1 gal = 4.546 L)</div>
+      <table class="conv-tbl">
+        <thead><tr><th>Imperial Gallon</th><th>Liters (L)</th></tr></thead>
+        <tbody>
+          <tr><td class="tbl-highlight">1 gallon</td><td class="tbl-val">4.546 L</td></tr>
+          <tr><td>2 gallons</td><td class="tbl-val">9.092 L</td></tr>
+          <tr><td>3 gallons</td><td class="tbl-val">13.638 L</td></tr>
+          <tr><td>4 gallons</td><td class="tbl-val">18.184 L</td></tr>
+          <tr><td class="tbl-highlight">5 gallons</td><td class="tbl-val">22.730 L</td></tr>
+          <tr><td>10 gallons</td><td class="tbl-val">45.461 L</td></tr>
+          <tr><td>20 gallons</td><td class="tbl-val">90.922 L</td></tr>
+          <tr><td>50 gallons</td><td class="tbl-val">227.305 L</td></tr>
+          <tr><td class="tbl-highlight">100 gallons</td><td class="tbl-val">454.609 L</td></tr>
+          <tr><td>500 gallons</td><td class="tbl-val">2,273.0 L</td></tr>
+          <tr><td class="tbl-highlight">1000 gallons</td><td class="tbl-val">4,546.1 L</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-badge">App Features</div>
+  <h2>Everything in one free app</h2>
+  <p class="section-sub">The Gallon to Liter Converter by Life Hack Developer is built for speed, accuracy and daily use</p>
+  <div class="features-grid">
+    <div class="feat-item">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-txt">
+        <h3>Instant conversion</h3>
+        <p>Type a value and see the result immediately — no button press needed. Works offline too.</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🔄</div>
+      <div class="feat-txt">
+        <h3>Two-way swap</h3>
+        <p>Convert gallon to liter or liter to gallon with one tap on the swap button.</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🌍</div>
+      <div class="feat-txt">
+        <h3>US &amp; Imperial gallon</h3>
+        <p>Supports both US gallon (3.785 L) and Imperial UK gallon (4.546 L). Switch with one tap.</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🧮</div>
+      <div class="feat-txt">
+        <h3>Multiple units</h3>
+        <p>Also converts quarts, pints, ounces, and milliliters — all liquid volume units in one place.</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📱</div>
+      <div class="feat-txt">
+        <h3>Mobile first design</h3>
+        <p>Clean, simple UI designed for one-handed use. No clutter, no ads, no registration needed.</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🆓</div>
+      <div class="feat-txt">
+        <h3>Completely free</h3>
+        <p>Download, use, and share — 100% free. No premium version, no in-app purchases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-badge">FAQ</div>
+  <h2>Frequently asked questions</h2>
+  <p class="section-sub">Quick answers to the most common gallon to liter questions</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How many liters in 1 gallon?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">1 US gallon = <strong>3.785 liters</strong>. 1 Imperial (UK) gallon = <strong>4.546 liters</strong>. The US gallon is the most commonly used in India and international contexts.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is a gallon bigger than a liter?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. A gallon is always bigger than a liter. 1 US gallon equals about <strong>3.785 liters</strong> and 1 Imperial gallon equals <strong>4.546 liters</strong>. So 1 gallon ≈ 3.8 to 4.5 times a liter.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the gallon to liter formula?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">For US gallons: <strong>Liters = Gallons × 3.78541</strong>. For Imperial gallons: <strong>Liters = Gallons × 4.54609</strong>. Reverse: Gallons = Liters ÷ 3.78541 (US) or ÷ 4.54609 (Imperial).</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How many gallons is 20 liters?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">20 liters = <strong>5.28 US gallons</strong> or <strong>4.40 Imperial gallons</strong>. Use the swap button in our converter above to quickly convert liters back to gallons.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is 1 gallon in liters in India?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">In India, 1 gallon = <strong>3.785 liters</strong> (US gallon standard). A typical 1,000-liter home water tank equals about <strong>264 US gallons</strong>. A 5-gallon water bottle = <strong>18.9 liters</strong>.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the difference between US and Imperial gallon?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">The US gallon is <strong>3.785 liters</strong> (used in USA, Latin America). The Imperial gallon is <strong>4.546 liters</strong> (used in UK, Canada, some Commonwealth countries). Always check which type is specified.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How many liters in 5 gallons?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">5 US gallons = <strong>18.927 liters</strong>. 5 Imperial gallons = <strong>22.730 liters</strong>. A standard 5-gallon office water bottle contains approximately 18.9 liters.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is 4 liters equal to 1 gallon?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Not exactly. 1 US gallon = <strong>3.785 liters</strong>, so 4 liters is close but slightly more than a gallon. A good rule of thumb: <strong>1 gallon ≈ 3.8 liters</strong> for everyday estimates.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HINDI SECTION -->
+<section class="hindi-section">
+  <div class="section-badge" style="background:rgba(255,255,255,0.1);color:var(--aqua)">हिंदी में जानें</div>
+  <h2>1 gallon mein kitne litre hote hain?</h2>
+  <p class="section-sub">Gallon aur liter ke baare mein aapke sabse zyada pooche jaane wale sawaal</p>
+  <div class="hindi-grid">
+    <div class="hindi-card">
+      <div class="hindi-q">1 gallon kitne liter hota hai?</div>
+      <div class="hindi-a">1 US gallon = <strong style="color:var(--bright)">3.785 litre</strong> hota hai. 1 Imperial gallon = 4.546 litre. Aam tor par India mein US gallon use hota hai.</div>
+    </div>
+    <div class="hindi-card">
+      <div class="hindi-q">5 gallon mein kitne litre hote hain?</div>
+      <div class="hindi-a">5 US gallon = <strong style="color:var(--bright)">18.927 litre</strong>. Yani jo badi paani ki bottle hoti hai office mein — woh lagbhag 5 gallon ki hoti hai.</div>
+    </div>
+    <div class="hindi-card">
+      <div class="hindi-q">1000 litre paani ka tank kitne gallon ka hoga?</div>
+      <div class="hindi-a">1000 litre = <strong style="color:var(--bright)">264.2 US gallon</strong>. Ghar mein lagaya jaane wala aam paani ka tank 1000–2000 litre (264–528 gallon) ka hota hai.</div>
+    </div>
+    <div class="hindi-card">
+      <div class="hindi-q">Gallon ko litre mein kaise convert karein?</div>
+      <div class="hindi-a">Formula: <strong style="color:var(--bright)">Litre = Gallon × 3.785</strong>. Ya sidha upar diya gaya converter use karein — type karein aur turant result paayein!</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-badge" style="background:rgba(255,255,255,0.08);color:var(--aqua)">Free Download</div>
+  <h2 style="margin-bottom:14px">Download the app — convert anywhere</h2>
+  <p class="section-sub">Works offline. No login. No ads. Just fast, accurate gallon to liter conversion on your Android phone.</p>
+  <div class="cta-btns">
+    <a href="https://play.google.com/store/apps/details?id=com.water.unitconverter_9948" class="playstore-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="var(--ocean)"><path d="M3 18.5v-13c0-.83.99-1.27 1.6-.67l11 6.5c.53.31.53 1.03 0 1.34l-11 6.5C3.99 19.77 3 19.33 3 18.5z"/></svg>
+      Get it on Google Play
+    </a>
+    <a href="https://instacalc.in" class="btn-secondary" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.25);color:var(--white)">
+      Visit instacalc.in ↗
+    </a>
+  </div>
+  <p style="margin-top:28px;font-size:13px;color:rgba(255,255,255,0.3);position:relative;z-index:1">
+    Rated 4.3★ · 5K+ downloads · By Life Hack Developer
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">insta<span>calc</span>.in</div>
+  <div class="footer-links">
+    <a href="https://instacalc.in" target="_blank">Home</a>
+    <a href="https://play.google.com/store/apps/developer?id=Life+Hack+Developer" target="_blank">More Apps</a>
+    <a href="mailto:ravinify@gmail.com">Contact</a>
+    <a href="https://mypolicyforyou.blogspot.com/2023/01/privacy-policy-for-right-angle-water.html" target="_blank">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">© 2026 Life Hack Developer · Karwar, Karnataka</div>
+</footer>
+
+<script>
+// Converter logic
+let swapped = false;
+let galType = 'us';
+const FACTOR = { us: 3.78541, uk: 4.54609 };
+
+function setType(t) {
+  galType = t;
+  document.querySelectorAll('.toggle-btn').forEach((b,i)=>{
+    b.classList.toggle('active', (t==='us'&&i===0)||(t==='uk'&&i===1));
+  });
+  convert();
+}
+
+function convert() {
+  const val = parseFloat(document.getElementById('input-val').value);
+  const factor = FACTOR[galType];
+  const fromLbl = document.getElementById('from-label');
+  const toLbl = document.getElementById('to-label');
+  const fromUnit = document.getElementById('from-unit');
+  const toUnit = document.getElementById('to-unit');
+  const resultEl = document.getElementById('result-val');
+  const formulaEl = document.getElementById('formula-text');
+
+  if (isNaN(val) || val === '') {
+    resultEl.textContent = '—';
+    formulaEl.textContent = swapped
+      ? `1 L ÷ ${factor} = ${(1/factor).toFixed(6)} ${galType==='us'?'US gal':'imp gal'}`
+      : `1 ${galType==='us'?'US gallon':'imp gallon'} × ${factor} = ${factor} L`;
+    return;
+  }
+
+  let result, formulaTxt;
+  if (!swapped) {
+    result = val * factor;
+    formulaTxt = `${val} ${galType==='us'?'US gal':'imp gal'} × ${factor} = ${result.toFixed(4)} L`;
+  } else {
+    result = val / factor;
+    formulaTxt = `${val} L ÷ ${factor} = ${result.toFixed(6)} ${galType==='us'?'US gal':'imp gal'}`;
+  }
+  resultEl.textContent = result >= 1000 ? result.toLocaleString('en-IN',{maximumFractionDigits:3}) : result.toFixed(result < 1 ? 6 : 3);
+  formulaEl.textContent = formulaTxt;
+}
+
+function swapUnits() {
+  swapped = !swapped;
+  const fromLbl = document.getElementById('from-label');
+  const toLbl = document.getElementById('to-label');
+  const fromUnit = document.getElementById('from-unit');
+  const toUnit = document.getElementById('to-unit');
+  const fromField = document.getElementById('from-field');
+  const toField = document.getElementById('to-field');
+
+  if (swapped) {
+    fromLbl.textContent = 'LITER';
+    fromUnit.textContent = 'L';
+    toLbl.textContent = galType === 'us' ? 'US GALLON' : 'IMP GALLON';
+    toUnit.textContent = 'gal';
+  } else {
+    fromLbl.textContent = galType === 'us' ? 'US GALLON' : 'IMP GALLON';
+    fromUnit.textContent = 'gal';
+    toLbl.textContent = 'LITER';
+    toUnit.textContent = 'L';
+  }
+  document.getElementById('input-val').value = '';
+  document.getElementById('result-val').textContent = '—';
+  convert();
+}
+
+function setVal(v) {
+  document.getElementById('input-val').value = v;
+  convert();
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.case-card,.feat-item,.faq-item,.hindi-card,.tbl-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// Smooth anchor scroll
+document.querySelector('[href="#converter"]').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('converter').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Initialize
+convert();
+</script>
+</body>
+</html>
